@@ -1,0 +1,43 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    default                                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: amuriel <amuriel@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/01/12 12:03:07 by amuriel           #+#    #+#              #
+#    Updated: 2021/01/12 17:10:42 by amuriel          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+server {
+	server_name localhost;
+
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+    return 301 https://$host$request_uri;
+}
+server {
+	server_name localhost;
+
+	listen 443 ssl default_server;
+	listen [::]:443 ssl default_server;
+
+	root /var/www/html;
+	index index.html index.htm index.php;
+
+	ssl on;
+	ssl_certificate /etc/ssl/certs/webkey.crt;
+    ssl_certificate_key /etc/ssl/private/webkey.key;
+
+	location / {
+    	autoindex on;
+	    try_files $uri $uri/ =404;
+	}
+	location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+    }
+}
+
