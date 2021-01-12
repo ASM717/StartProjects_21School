@@ -25,7 +25,7 @@ ft_server (docker server)
 Dockerfile that sets up an nginx server. It must run a Wordpress with a MySQL database and and PHPMyAdmin.
 How to use it
 
-Make sure Docker Desktop is running and you are in the ft_server directory.
+Make sure Docker Desktop is running and you are in the docker_server directory.
 
 To build the docker image, run :
 
