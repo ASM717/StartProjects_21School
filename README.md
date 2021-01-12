@@ -20,5 +20,21 @@ get_next_line 115%
 =====================
 libft - library 115%
 =====================
+ft_server (docker server)
+=========================
+Dockerfile that sets up an nginx server. It must run a Wordpress with a MySQL database and and PHPMyAdmin.
+How to use it
+
+Make sure Docker Desktop is running and you are in the ft_server directory.
+
+To build the docker image, run :
+
+	docker build -t server .
+
+The image is now created. To start an instance of it, run :
+
+	docker run -p 80:80 -p 443:443 -d server
+------------------------------------------------------------
+If you want to switch autoindex(on \ off) -> cd etc/nginx/sites-availiable/default (open file with VIM) 
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
