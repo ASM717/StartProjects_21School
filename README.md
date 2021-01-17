@@ -20,7 +20,7 @@ get_next_line 115%
 =====================
 libft - library 115%
 =====================
-ft_server (docker server)
+ft_server (docker server) 100%
 =========================
 Dockerfile that sets up an nginx server. It must run a Wordpress with a MySQL database and and PHPMyAdmin.
 How to use it

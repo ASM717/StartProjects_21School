@@ -41,6 +41,8 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=Moscow/L=Moscow/O=21 SCHO
 	-keyout /etc/ssl/private/webkey.key\
 	-out /etc/ssl/certs/webkey.crt
 RUN chmod -R 600 /etc/ssl/*
+RUN chown -R www-data /var/www/*
+RUN chmod -R 755 /var/www/*
 
 COPY ./srcs/start.sh .
 COPY ./srcs/database_init.sql .
